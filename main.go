@@ -20,6 +20,9 @@ func main() {
         }
     }()
 
+    // RIPv2パケットの受信を開始
+    go listenForRipUpdates()
+
     // REST APIのルーティング設定
     http.HandleFunc("/send_route", handleRoute)
     http.HandleFunc("/delete_route", handleDeleteRoute) // ルート削除用のエンドポイント
